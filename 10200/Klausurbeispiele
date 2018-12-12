@@ -1,11 +1,11 @@
 #1
-choose(10+5-1,5)
+choose(10+5-1,5)                                            #korrekt: choose(10+5-1,10)
 gummi<-function(n=10,k=5) {
     wert=table(sample(1:k,n,replace=T))
     return(wert)
 }
-mean(replicate(10000,any(gummi(10,5)==3)))
-mean(replicate(10000,length(gummi(10,5))<5))
+mean(replicate(10000,any(gummi(10,5)==3)))                  #alternativ: mean(replicate(10000,max(gummi(10,5)>=3))) 
+mean(replicate(10000,length(gummi(10,5))<5))                #alternativ: mean(replicate(10000,min(gummi(10,5)==3))) 
 #2
 wurf10<-function() {sample(1:6,10,replace=T)}
 s<-replicate(10000,wurf10())
